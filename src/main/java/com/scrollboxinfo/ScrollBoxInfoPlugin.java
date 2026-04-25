@@ -665,6 +665,10 @@ public class ScrollBoxInfoPlugin extends Plugin
 	@Subscribe
 	public void onProfileChanged(ProfileChanged event)
 	{
+		refreshInfoboxes();
+	}
+
+	private void refreshInfoboxes() {
 		removeAllInfoboxes();
 
 		clientThread.invokeLater(() ->
@@ -678,6 +682,15 @@ public class ScrollBoxInfoPlugin extends Plugin
 				checkAndDisplayInfobox(tier, count, cap);
 			}
 		});
+	}
+
+	@Subscribe
+	public void onVarbitChanged(VarbitChanged varbitChanged)
+	{
+		if (StackLimitCalculator.SCROLL_VARBITS.contains(varbitChanged.getVarbitId()))
+		{
+			refreshInfoboxes();
+		}
 	}
 
 	@Subscribe

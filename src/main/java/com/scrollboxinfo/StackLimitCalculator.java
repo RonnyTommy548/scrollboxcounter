@@ -2,6 +2,9 @@ package com.scrollboxinfo;
 
 import net.runelite.api.Client;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class StackLimitCalculator
 {
     public static final int SCROLL_CASE_BEGINNER_MINOR = 16565;
@@ -17,6 +20,22 @@ public class StackLimitCalculator
     public static final int SCROLL_CASE_MASTER_MINOR = 16593;
     public static final int SCROLL_CASE_MASTER_MAJOR = 16594;
     public static final int SCROLL_CASE_MIMIC = 16595;
+
+    public static final List<Integer> SCROLL_VARBITS = Arrays.asList(
+        SCROLL_CASE_BEGINNER_MINOR,
+        SCROLL_CASE_BEGINNER_MAJOR,
+        SCROLL_CASE_EASY_MINOR,
+        SCROLL_CASE_EASY_MAJOR,
+        SCROLL_CASE_MEDIUM_MINOR,
+        SCROLL_CASE_MEDIUM_MAJOR,
+        SCROLL_CASE_HARD_MINOR,
+        SCROLL_CASE_HARD_MAJOR,
+        SCROLL_CASE_ELITE_MINOR,
+        SCROLL_CASE_ELITE_MAJOR,
+        SCROLL_CASE_MASTER_MINOR,
+        SCROLL_CASE_MASTER_MAJOR,
+        SCROLL_CASE_MIMIC
+    );
     private static final int BASE_CLUE_CAP = 2;
 
     public static int getStackLimit(ClueTier tier, Client client)
